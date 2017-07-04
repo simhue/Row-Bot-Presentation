@@ -1,0 +1,86 @@
+\documentclass[portrait,a0paper,fontscale=0.29]{baposter}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+\begin{document}
+	\begin{poster}{background=none}
+	{}
+	{Row-Bot: Roboter essen Schmutz auf}
+	{Simon Hüning}
+	{University Logo}
+
+		\headerbox{Hintergrund}{name=problem,column=0,row=0}{
+			Die Zeitdauer eines Roboters autonom, zu agieren ist limitiert. Z.B. muss der Energiebedarf ausreichend gedeckt sein, damit er funktioniert. Dies ist bei den meisten robotischen Systemen nur durch menschliche Handeln möglich. Für ein sich selbst mit Energie versorgendes System ergeben sich daraus folgende Vorraussetzungen:
+
+			\begin{itemize}\compresslist
+				\item Die Fähigkeit, selbstständig Energie zu produzieren
+				\item Ein Betank- und Fortbewegungssystem, welches weniger Energie verbraucht, als produziert wird
+			\end{itemize}
+		}
+
+		\headerbox{Vorbild aus der Natur: Die Ruderwanze}{name=motivation,column=1,row=0,span=2}{
+			\begin{multicols}{3}
+				Eine ideales System generiert Energie aus der Umgebung, etwa wie Gewässer, in der es sich gerade befindet. In der Natur findet sich die Runderwanze, welche sich u.a. von Algen aus den Gewässern ernährt, in denen sie lebt. Durch die Verdauung der Algen generiert sie Energie, durch die sich die Runderwanze weiter fortbewegen und neue Nahrung suchen kann.				
+
+				\columnbreak
+				\includegraphics[width=1\linewidth]{pics/ruderwanze.png}
+				\includegraphics[width=1\linewidth]{pics/rowbot.png}
+			\end{multicols}
+		}
+
+		\headerbox{Der Row-Bot}{name=components,below=problem,span=2}{
+			\begin{multicols}{2}		
+
+				\includegraphics[width=.75\linewidth]{pics/schema.png}
+				
+				Anterior und posterior an dem Row-Bot sind schließbare Öffnungen für den Zu- und Abfluss des Futters angebracht. Analog zur Runderwanze, welche schlagartige Bewegungen ihrer Hinterbeine nutzt, um sich im Wasser fortzubewegen, sind am Row-Bot seitlich Paddel angebracht. Nachdem sich der Mund geöffnet hat, beginnen die Paddel zu rudern, um neue Nährstoffe aus dem Wasser aufzunehmen. Nach einer gewissen Strecke bleibt der Bot stehen, schließt die Öffnungen wieder und beginnt mit der "Verdauung".
+
+				\columnbreak
+				
+				\includegraphics[width=1\linewidth]{pics/bewegungsablauf.PNG}
+
+				Eine mikrobielle Brennstoffzelle (MBZ) übernimmt die Funktion des Verdauungstraktes. Eine MBZ nutzt Mikroorganismen, die innerhalb ihres Stoffwechsels organische Substanzen verarbeiten. Durch den Stoffwechsel wird Strom erzeugt. Die Energie aus der MBZ wird genutzt, um zum einem den Ruder- und zum anderen den Fütterungsmechanismus zu betreiben.
+
+				\includegraphics[width=1\linewidth]{pics/mfc.PNG}
+			\end{multicols}
+		}
+
+		\headerbox{Energiegewinnung}{name=energy,below=problem,column=2,row=1}{
+			Der Anodenraum der MBZ wurde mit 25ml Klärschlamm befüllt, welche man in 5 Folgetagen täglich mit 5ml Acetatlösung ersetzte. Danach zogen die Forscher die MBZ samt Füttersystem 20cm durch ein Wasserbecken, wo der Fütterzyklus vollzogen wurde.
+
+			Ein Energiesammler wurde genutzt, um die geringe Spannung der MBZ auf 5,5V zu wandeln. Die MBZ würde pber 10 Futtervorgänge hinweg über den Energiesammler eine Energie von 5J produzieren. Daraus lässt sich eine Kapazität eines Kondensators von 0,33F berechnen ($E=CV^2/2$). Die beobachtete Wandlungseffizienz des Konverters lag bei 30\%. Daraus resultierte eine tatsächliche Ladung von 4,1V. Bei dieser Wandlungseffizienz ist eine Kapazität von 0.18F nötig, um die gewünschten 5,5V zu erreichen.
+
+			\hspace{1em}
+
+			\includegraphics[width=0.9\linewidth]{pics/charge.png}
+		}
+
+		\headerbox{Bewegung}{name=movement,below=components,above=bottom,column=0,span=2}{
+			\begin{multicols}{3}
+			Der Row-Bot wurde für den Bewegungstest in ein Wasserbecken gesetzt und jeweils einmal durch den mit 4,1V geladenen 0,33F und mit 5,5V geladenen 0,18F Kondensator betrieben. Die Bewegungen beinhalten den kompletten Futterzyklus. Nach Abschluss der Bewegungen blieben für den 0,33F Kondensator noch eine Restenergie von 0,58J und für den 0,18F Kondensator eine Restenergie von 0.9J.
+
+			\columnbreak
+
+			\includegraphics[width=1\linewidth]{pics/33.PNG}
+
+			\columnbreak
+
+			\includegraphics[width=1\linewidth]{pics/18.PNG}
+			\end{multicols}
+		}
+
+		\headerbox{Schlussfolgerung}{name=conclusion,below=energy,above=bottom,column=2,span=1}{
+			Der Resultate zeigen einen Roboter, der instande ist selbstständig Energie zu gewinnen und sich selbst wieder zu betanken. Die Bewegungseffizienz liegt noch weit hinter dem biologischem Vorbild, was sich mit einem Ruderschlag weiter fortbewegen kann. Dennoch zeigen die Messergebnisse eine Restenergie, die für weitere Aktionen genutzt werden kann, z.B. Positionsangabe. 
+
+			Das langfristige Ziel der Entwickler ist der Einsatz des Row-Bots in verschmutzten Gebieten, wie riesige Algen- oder Ölteppiche in Meeren. Die Row-Bots sollen in Schwärmen durch ihre MBZ die Verschmutzungen eindämmen und säubern.
+		}
+	\end{poster}
+\end{document}
